@@ -22,7 +22,7 @@ namespace TestProyecto.Controllers
 
 
 
-
+        //Funcion Crear Usuario
 
         [HttpGet]
         public async Task <IActionResult> Index()
@@ -54,6 +54,65 @@ namespace TestProyecto.Controllers
             }
 
             return View();
+        }
+
+        //Funcion Editar Usuario
+
+        [HttpGet]
+        public IActionResult Editar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var contacto = _context.Contacto.Find(id);
+            if (contacto == null)
+            {
+                return NotFound();
+            }
+
+
+
+            return View(contacto);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Editar(Contacto contacto)
+        {
+            if (ModelState.IsValid)
+            {
+
+                contacto.FechaCreacion = DateTime.Now;
+
+                _context.Update(contacto);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+
+            }
+
+            return View();
+        }
+
+
+        [HttpGet]
+        public IActionResult Detalle(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var contacto = _context.Contacto.Find(id);
+            if (contacto == null)
+            {
+                return NotFound();
+            }
+
+
+
+            return View(contacto);
         }
 
 

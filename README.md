@@ -1,11 +1,14 @@
 # Proyecto CRUD con ASP.NET Core MVC
 
 Este proyecto es un ejemplo básico de una aplicación CRUD (Crear, Leer, Actualizar, Eliminar) utilizando ASP.NET Core MVC y C#. La aplicación permite gestionar una lista de contactos, donde cada contacto tiene un nombre, teléfono y correo electrónico.
+Se utilizó la db SQL de Somee.com.
 
 ## Requisitos Previos
 
 - [.NET Core SDK](https://dotnet.microsoft.com/download) instalado en tu sistema.
 - [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio](https://visualstudio.microsoft.com/) (opcional) para editar el código.
+
+  
 
 ## Configuración
 
@@ -16,3 +19,4 @@ Este proyecto es un ejemplo básico de una aplicación CRUD (Crear, Leer, Actual
 
 
 2. dotnet run
+

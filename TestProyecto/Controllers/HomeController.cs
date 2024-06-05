@@ -116,6 +116,33 @@ namespace TestProyecto.Controllers
         }
 
 
+        public IActionResult Borrar(int id)
+        {
+            var contacto = _context.Contacto.Find(id);
+            if (contacto == null)
+            {
+                return NotFound();
+            }
+            return View(contacto);
+        }
+
+        // Acción para manejar la eliminación del registro
+        [HttpPost, ActionName("Borrar")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var contacto = _context.Contacto.Find(id);
+            if (contacto == null)
+            {
+                return NotFound();
+            }
+
+            _context.Contacto.Remove(contacto);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+
 
         public IActionResult Privacy()
         {

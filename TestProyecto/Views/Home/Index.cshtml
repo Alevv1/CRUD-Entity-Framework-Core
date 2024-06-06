@@ -1,7 +1,6 @@
 ﻿@using TestProyecto.Models
 @model IEnumerable<Contacto>
 
-
 @{
     ViewData["Title"] = "Lista de contactos";
 }
@@ -9,47 +8,47 @@
     <div class="text-center">
         <h3 class="text-center bg-secondary rounded p-3">CRUD .NET MVC</h3>
         <div class="row">
-            <div class="offset-9 col-3 mb-3">
-                <a asp-action="Crear" asp-controller="Home" class="btn btn-secondary d-block mx-auto">
+            <div class="col-md-6 offset-md-3 mb-3">
+                <a asp-action="Crear" asp-controller="Home" class="btn btn-primary btn-lg btn-block">
                     <i class="fa-solid fa-plus"></i> Nuevo Usuario
                 </a>
             </div>
         </div>
         <div class="row">
-            <div class="offset-12">
+            <div class="col-md-12">
                 <div class="card border">
-                    <div class="card-header bg-dark">
-                        <h3 class="text-white">Lista de usuarios</h3>
+                    <div class="card-header bg-dark text-white">
+                        <h3 class="card-title">Lista de usuarios</h3>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             @if (Model.Count() > 0)
-                            { 
-                                <table class="table table-bordered" id="tblUsuarios" width="100%">
-                                    <thead>
+                            {
+                                <table class="table table-hover">
+                                    <thead class="thead-dark">
                                         <tr>
-                                            <th>@Html.DisplayNameFor(m => m.Id)</th>
-                                            <th>@Html.DisplayNameFor(m => m.Nombre)</th>
-                                            <th>@Html.DisplayNameFor(m => m.Telefono)</th>
-                                            <th>@Html.DisplayNameFor(m => m.Email)</th>
-                                            <th>@Html.DisplayNameFor(m => m.FechaCreacion)</th>
-                                            <th>ACCIONES</th>
+                                            <th>ID</th>
+                                            <th>Nombre</th>
+                                            <th>Teléfono</th>
+                                            <th>Email</th>
+                                            <th>Fecha de Creación</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
                                             <tr>
-                                                <td>@Html.DisplayFor(m => item.Id)</td>
-                                                <td>@Html.DisplayFor(m => item.Nombre)</td>
-                                                <td>@Html.DisplayFor(m => item.Telefono)</td>
-                                                <td>@Html.DisplayFor(m => item.Email)</td>
-                                                <td>@Html.DisplayFor(m => item.FechaCreacion)</td>
+                                                <td>@item.Id</td>
+                                                <td>@item.Nombre</td>
+                                                <td>@item.Telefono</td>
+                                                <td>@item.Email</td>
+                                                <td>@item.FechaCreacion.ToShortDateString()</td>
                                                 <td>
-                                                   <div class="">
-                                                    <a class="btn btn-warning" asp-action="Editar" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square p-1"></i>Editar</a>
-                                                    <a class="btn btn-secondary" asp-action="Detalle" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square p-1"></i>Detalle</a>
-                                                        <a class="btn btn-danger" asp-action="Borrar" asp-route-id="@item.Id"><i class="fa-solid fa-trash p-1"></i>Borrar</a>
+                                                    <div class="btn-group" role="group" aria-label="Acciones">
+                                                        <a class="btn btn-warning" asp-action="Editar" asp-route-id="@item.Id"><i class="fa-solid fa-edit"></i> Editar</a>
+                                                        <a class="btn btn-secondary" asp-action="Detalle" asp-route-id="@item.Id"><i class="fa-solid fa-info-circle"></i> Detalle</a>
+                                                        <a class="btn btn-danger" asp-action="Borrar" asp-route-id="@item.Id"><i class="fa-solid fa-trash"></i> Borrar</a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -59,7 +58,7 @@
                             }
                             else
                             {
-                                <p>NO hay registros</p>
+                                <p class="text-muted text-center">No hay registros.</p>
                             }
                         </div>
                     </div>
@@ -68,3 +67,4 @@
         </div>
     </div>
 </section>
+

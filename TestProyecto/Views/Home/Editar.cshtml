@@ -1,58 +1,49 @@
 ﻿@using TestProyecto.Models
 @model Contacto
 
-
 @{
     ViewData["Title"] = "Editar contacto";
 }
 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="card-title">Editar usuario</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Editar" method="post">
 
-<div class="row">
-    <div class="offset-12">
-        <div class="card border">
-            <div class="card-header bg-dark">
-                <h3 class="text-white">Editar usuario</h3>
-            </div>
-            <div class="card-body">
+                        <!-- ID del usuario como campo oculto-->
+                        <input type="hidden" asp-for="Id" />
 
-                <form asp-action="Editar" >
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group pt-2">
+                            <label asp-for="Nombre" class="control-label">Nombre:</label>
+                            <input asp-for="Nombre" class="form-control" placeholder="Ingresa el nombre" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
 
-                    <!-- ID del usuario como campo oculto-->
-                    <input type="hidden" asp-for="Id" />
+                        <div class="form-group pt-2">
+                            <label asp-for="Telefono" class="control-label">Teléfono:</label>
+                            <input asp-for="Telefono" class="form-control" placeholder="Ingresa el Teléfono" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
 
+                        <div class="form-group pt-2">
+                            <label asp-for="Email" class="control-label">Email:</label>
+                            <input asp-for="Email" class="form-control" placeholder="Ingresa el Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
 
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group pb-2">
-                        <label asp-for="Nombre" class="control-label"></label>
-                        <input asp-for="Nombre" class="form-control" placeholder="Ingresa el nombre" />
-                        <span asp-validation-for="Nombre" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group pb-2">
-                        <label asp-for="Telefono" class="control-label"></label>
-                        <input asp-for="Telefono" class="form-control" placeholder="Ingresa el Telefono" />
-                        <span asp-validation-for="Telefono" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group pb-2">
-                        <label asp-for="Email" class="control-label"></label>
-                        <input asp-for="Email" class="form-control" placeholder="Ingresa el Email" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group mt-3">
-                        <button type="submit" class="btn btn-primary d-block mx-auto"> <i class="fa-solid fa-person"></i>Editar Usuario</button>
-
-                    </div>
-
-
-                </form>
-
-                <div>
-
-                    <a asp-action="Index" asp-controller="Home" class="btn ">
-                        <i class="fa-solid fa-backward"></i> Home
-                    </a>
+                        <div class="form-group text-center pt-3">
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-person"></i> Editar Usuario</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary"><i class="fa-solid fa-backward"></i> Volver a la Lista</a>
                 </div>
             </div>
         </div>

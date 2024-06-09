@@ -20,3 +20,7 @@ Se utilizó la db SQL de Somee.com.
 
 2. dotnet run
 
+![Captura de pantalla 2024-06-08 225415](https://github.com/Alevv1/CRUD-Entity-Framework-Core/assets/80133706/02c05eaf-48d6-43c4-9641-9b7121a974ac)
+
+
+![Captura de pantalla 2024-06-08 225433](https://github.com/Alevv1/CRUD-Entity-Framework-Core/assets/80133706/8712abf8-c9e4-4e77-91cd-f42b0c389b67)

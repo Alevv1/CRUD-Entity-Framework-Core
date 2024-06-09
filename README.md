@@ -15,7 +15,7 @@ Se utilizó la db SQL de Somee.com.
 1. **Clonar el Repositorio**: Clona este repositorio.
 
    ```bash
-   git clone https://github.com/tuusuario/tuproyecto.git
+   git clone https://github.com/Alevv1/CRUD-Entity-Framework-Core
 
 
 2. dotnet run
